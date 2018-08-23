@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Dylan Campbell'
 SITENAME = 'Dylan Campbell'
-SITEURL = ''
+SITEURL = '/'
 
 PATH = 'content'
 
@@ -28,7 +28,7 @@ FAVICON = 'url-to-favicon'
 
 DISPLAY_PAGES_ON_MENU = True
 
-MENUITEMS = (('Home', SITEURL),)
+MENUITEMS = (('Blog', SITEURL),)
 
 # Blogroll
 LINKS = (('Nick\'s Blog','https://nickrcasteen.github.io/'),

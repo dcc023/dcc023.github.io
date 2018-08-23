@@ -11,4 +11,4 @@ Summary: General summary about me
 ========
 *My name is Dylan Campbell, etc.*
 
-*In this blog, I aim to embrace the technological wanderlust part of me and post whatever random thing I decide to work on. Whether it be trivial or too complex for me to properly portray in a single blog post.*
+*In this blog, I aim to embrace the technological wanderlust part of myself and post whatever random thing I decide to work on. Whether it be trivial or too complex for me to properly portray in a single blog post.*

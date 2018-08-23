@@ -9,7 +9,8 @@ Summary: All the ways to get in contact with me
 
 **Contact Me**
 ==========
-email
-linkedIn
-facebook
-github
+
+## [Email](mailto:campbellogna@gmail.com)
+## [LinkedIn](https://www.linkedin.com/in/dylancharlescampbell)
+## [Facebook](https://www.facebook.com/campbelldylancharles)
+## [Github](https://github.com/dcc023)
