@@ -1,59 +1,103 @@
-<!DOCTYPE html>
-<html lang="english">
+<!doctype html>
+<html lang="english" itemscope itemtype="http://schema.org/Person">
 <head>
-        <meta charset="utf-8" />
-        <title>Dylan Campbell</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+            <meta charset="utf-8">
+        <!-- Site Meta Data -->
+        <title> Dylan Campbell | Software Developer </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Dylan Campbell">
 
-        <!--[if IE]>
-            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
+        <link rel="shortcut icon" href="url-to-favicon">
+
+        <!-- schema.org -->
+        <meta itemprop="name" content="Dylan Campbell">
+        <meta itemprop="image" content="">
+        <meta itemprop="description" content="">
+
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+        <!-- Style Meta Data -->
+        <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="/theme/css/pygments.css" type="text/css"/>
+
+        <!-- Feed Meta Data -->
+
+        <!-- Twitter Feed -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="">
+        <meta name="twitter:image" content="">
+
+    <meta name="twitter:creator" content="">
+    <meta name="twitter:url" content="/archives.html">
+    <meta name="twitter:title" content="Dylan Campbell ~ Archives">
+    <meta name="twitter:description" content="Dylan Campbell ~ Archives du site">
+
+    <!-- Facebook Meta Data -->
+    <meta property="og:title" content="Dylan Campbell ~ Archives"/>
+    <meta property="og:description" content="Dylan Campbell ~ Archives"/>
+    <meta property="og:image" content=""/>
 </head>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">Dylan Campbell </a></h1>
-                <nav><ul>
-                    <li><a href="/pages/about-me.html">About</a></li>
-                    <li><a href="/pages/contact-me.html">Contact</a></li>
-                    <li><a href="/category/blog.html">blog</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-<section id="content" class="body">
-<h1>Archives for Dylan Campbell</h1>
+<body>
+<!-- Sidebar -->
+<aside>
+    <!--<center><a href=""><img id="avatar" src=""></a></center>-->
+    <h1>Dylan Campbell</h1>
+        <p>Software Developer</p>
+    <br>
 
-<dl>
-    <dt>Wed 22 August 2018</dt>
-    <dd><a href="/blog-1.html">blog 1</a></dd>
-</dl>
-</section>
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>links</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+    <nav class="nav">
+        <ul class="list-bare">
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+                <li><a class="nav__link" href="">Home</a></li>
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+                <li><a class="nav__link" href="/pages/about-me.html">About</a></li>
+                <li><a class="nav__link" href="/pages/contact-me.html">Contact</a></li>
+
+        </ul>
+    </nav>
+
+    <p class="social">
+                <a href="https://www.linkedin.com/in/dylancharlescampbell" target="_blank"><img
+                        src="/theme/images/icons/linkedin.png"></a>
+                <a href="https://github.com/dcc023" target="_blank"><img
+                        src="/theme/images/icons/github.png"></a>
+    </p>
+
+        <h2>Categories</h2>
+        <ul class="navbar">
+                <li><a
+                        href="/category/blog.html">blog</a></li>
+        </ul>
+
+        <h2 class="blog_roll_link"><br/>BLOGROLLS</h2>
+        <ul class="navbar">
+                <li><a href="https://nickrcasteen.github.io/">Nick's Blog</a></li>
+        </ul>
+
+</aside>
+
+<!-- Content -->
+<article>
+    <h1>Archives</h1>
+
+    <dl>
+            <dt>Wed 22 August 2018</dt>
+            <dd><a href="/blog-1.html">blog 1</a></dd>
+    </dl>
+</article>
+
+<!-- Footer -->
+    <footer>
+        <p>
+            Blog powered by <a href="http://getpelican.com/">Pelican</a>,
+            which takes great advantage of <a href="http://python.org">Python</a>.
+            Theme <a href="https://github.com/parbhat/pelican-blue">Pelican-Blue</a> by <a
+                href="https://parbhatpuri.com/">@parbhat</a>.
+        </p>
+    </footer>
+
 
 </body>
 </html>
