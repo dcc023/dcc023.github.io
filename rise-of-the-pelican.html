@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="english" itemscope itemtype="http://schema.org/Person">
+<head>
+            <meta charset="utf-8">
+        <!-- Site Meta Data -->
+        <title>Rise of the Pelican</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Dylan Campbell">
+
+        <link rel="shortcut icon" href="url-to-favicon">
+
+        <!-- schema.org -->
+        <meta itemprop="name" content="Dylan Campbell">
+        <meta itemprop="image" content="">
+        <meta itemprop="description" content="">
+
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+        <!-- Style Meta Data -->
+        <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="/theme/css/pygments.css" type="text/css"/>
+
+        <!-- Feed Meta Data -->
+
+        <!-- Twitter Feed -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="">
+        <meta name="twitter:image" content="">
+
+    <meta name="twitter:creator" content="">
+    <meta name="twitter:url" content="/rise-of-the-pelican.html">
+    <meta name="twitter:title" content="Dylan Campbell ~ Rise of the Pelican">
+    <meta name="twitter:description" content="Using the Pelican static site generator">
+
+    <!-- Facebook Meta Data -->
+    <meta property="og:title" content="Dylan Campbell ~ Rise of the Pelican"/>
+    <meta property="og:description" content="Using the Pelican static site generator"/>
+    <meta property="og:image" content=""/>
+</head>
+
+<body>
+<!-- Sidebar -->
+<aside>
+    <!--<center><a href=""><img id="avatar" src=""></a></center>-->
+    <h1>Dylan Campbell</h1>
+        <p>Software Developer</p>
+    <br>
+
+
+    <nav class="nav">
+        <ul class="list-bare">
+
+                <li><a class="nav__link" href="/">Blog</a></li>
+
+                <li><a class="nav__link" href="/pages/about-me.html">About</a></li>
+                <li><a class="nav__link" href="/pages/contact-me.html">Contact</a></li>
+
+        </ul>
+    </nav>
+
+    <p class="social">
+                <a href="https://www.linkedin.com/in/dylancharlescampbell" target="_blank"><img
+                        src="/theme/images/icons/linkedin.png"></a>
+                <a href="https://github.com/dcc023" target="_blank"><img
+                        src="/theme/images/icons/github.png"></a>
+    </p>
+
+        <h2>Categories</h2>
+        <ul class="navbar">
+                <li class="active"><a
+                        href="/category/python.html">python</a></li>
+        </ul>
+
+        <h2 class="blog_roll_link"><br/>BLOGROLLS</h2>
+        <ul class="navbar">
+                <li><a href="https://nickrcasteen.github.io/">Nick's Blog</a></li>
+        </ul>
+
+</aside>
+
+<!-- Content -->
+<article>
+    <section id="content">
+        <article>
+            <h2 class="post_title post_detail"><a href="/rise-of-the-pelican.html" rel="bookmark"
+                                                  title="Permalink to Rise of the Pelican">Rise of the Pelican</a></h2>
+            <div class="entry-content blog-post">
+                <h1>Preface</h1>
+<p>Most of you have probably heard/worked with Django, Flask, or Ruby on Rails, but I'm sure only a few have heard of Pelican. Pelican is not a full-fledged web framework. It is an extremely light weight alternative, a static site generator. It's main focus is to easily generate static websites without having to worry about maintaining a backend. So for the purposes of maintaining a personal website, it has most everything I need.</p>
+<p>As a fresh college graduate in my first software developer job, I have decided to begin working on my professional online image. I worked on my LinkedIn account, started cleaning up my github, and have decided to fix up my personal website. I use the github.io site since it is free and simple to interface with via git commands. </p>
+<p>Up to this point, I have had a personal website, but it was a mess. I would experiment with various html/css/javascript tricks to see what I could accomplish. As much fun as it was, it looked like crap. When I decided to clean things up, I wanted to find a way to use python to generate the website so that I would not have to write all of the html and css by hand. </p>
+<p>I came across the greats of web frameworks in my searches but found them to be a little overkill. Seeing as I wanted a simple blog with an about and contact page. This is when I came across what are called static site generators. They are built to easily/efficiently handle my exact usecase (Wow, so you mean I'm not unique? /s). When searching through the list of them, I found Pelican to be the most kept up with python-based one. That is when I bit the bullet and decided to actually start working on the site.</p>
+<p><img alt="Pelican Image" src="https://www.fullstackpython.com/img/logos/pelican.png"></p>
+<p>To start things off, I hopped right into the <a href="http://docs.getpelican.com/en/stable/quickstart.html">Quickstart Guide</a> on the Pelican documentation. Got it up and running in less than 5 minutes, ez. </p>
+<p>Next I wanted to create a page and see what that was all about since that is what I would most always being doing. I began working through the <a href="https://www.fullstackpython.com/blog/generating-static-websites-pelican-jinja2-markdown.html">Full Stack Python tutorial</a>. Quickly realized that this tutorial was not created with Windows in mind. So I would have to translate on the fly, which is always risky when learning something new. Pelican initialization gives you a nice handy makefile, but I did not want to get too reliant on using a buildfile when I hardly know the commands. </p>
+<div class="highlight"><pre><span></span><span class="c1"># Commands that are commonly used.</span>
+
+<span class="n">pelican</span> <span class="o">./</span><span class="n">content</span> <span class="c1"># Generates the website using the content folder.</span>
+
+<span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">.</span><span class="n">server</span> <span class="c1"># Run from within output folder, serves website to localhost:8000</span>
+</pre></div>
+
+
+<p>(After a bit, I just created a batch file that handles this.)</p>
+<p>So far I was understanding the basics. Pelican generates the website and places all of the files into the output folder. This output folder has everything needed to display the website in a nice organized fashion. You should not be editing anything in the output folder. </p>
+<p>What does it generate it from, you ask? Pelican uses the <em>content folder</em> to know what content to generate. Content meaning all of the blogs and pages you will want to add to the site. If you want to create static pages such as an about page, you would create a subfolder named <em>pages</em> within the <em>content folder</em>. Within this <em>pages folder</em>, you can create a markdown file and write whatever info you want. Next time you generate, Pelican will see that file and give it its own route and (theme-dependent) add it to the toolbar on all the other webpages. How sweet of it.</p>
+<p>For writing blog posts, it handles this very well. Create a subfolder named <em>posts</em> within the <em>content folder</em>. This is where you will place all of your blog entries (You can further diversify from there, but we will not get into that). It will organize these posts by utilizing the information placed in the header tags.</p>
+<div class="highlight"><pre><span></span><span class="n">Title</span><span class="o">:</span> <span class="n">Rise</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Pelican</span>
+<span class="n">Category</span><span class="o">:</span> <span class="n">python</span>
+<span class="n">Date</span><span class="o">:</span> <span class="mi">2018</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">24</span>
+<span class="n">Modified</span><span class="o">:</span> <span class="mi">2018</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">24</span>
+<span class="n">Tags</span><span class="o">:</span> <span class="n">framework</span><span class="o">,</span> <span class="n">pelican</span><span class="o">,</span> <span class="n">python</span><span class="o">,</span> <span class="kd">static</span><span class="o">,</span> <span class="n">site</span><span class="o">,</span> <span class="n">generator</span>
+<span class="n">Slug</span><span class="o">:</span> <span class="n">rise</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">the</span><span class="o">-</span><span class="n">pelican</span>
+<span class="n">Authors</span><span class="o">:</span> <span class="n">Dylan</span> <span class="n">Campbell</span>
+<span class="n">Summary</span><span class="o">:</span> <span class="n">Using</span> <span class="n">the</span> <span class="n">Pelican</span> <span class="kd">static</span> <span class="n">site</span> <span class="n">generator</span>
+</pre></div>
+
+
+<p>Aside from adding content, you also will need to edit the pelicanconf.py file on occasion. Its simply formatted, so you can parse down it and figure out what you'd need to change. I learned that a blog roll is a list of links where you advertise other blogs.</p>
+<p>At this point, I had it up and running. I made a sample blog and was geniunely impressed by Pelicans simplicity. Next on the agenda was to change the theme. I did not want to just rock the default pelican theme, which is not ugly by any means. I headed over to <a href="http://www.pelicanthemes.com/">Pelican Themes</a> and decided on using the <a href="https://github.com/parbhat/pelican-blue">pelican-blue</a> theme. It is simple, professional, and mobile friendly.</p>
+<p>The way you utilize the theme is to clone the theme repo into the Pelican project folder (I created a pelican-themes folder in the project, then cloned the pelican-blue repo into it, to be more organized.) Then from within the pelicanconf.py file, place 
+<code>THEME = 'pelican-themes/pelican-blue'</code> 
+somewhere within it. Then generate the website and it'll be looking nice and new without having to change the file structure.</p>
+<p>After creating the About and Contact pages, we have the website looking nice and clean. All that is left is to fill it with meaningful content. Starting with this post!</p>
+            </div>
+            <div class="post_list">
+                <span>By </span>
+                <a href="/author/dylan-campbell.html">@Dylan Campbell</a>
+                <span> in </span>
+                <span class="post_category"><a href="/category/python.html" rel="bookmark"
+                                               title="Permalink to python">[ python ]</a></span>
+                <span class="post_date">Fri 24 August 2018</span>
+                <div><span>Tags : </span>
+                            <span><a href="/tag/framework.html">#framework, </a></span>
+                            <span><a href="/tag/pelican.html">#pelican, </a></span>
+                            <span><a href="/tag/python.html">#python, </a></span>
+                            <span><a href="/tag/static.html">#static, </a></span>
+                            <span><a href="/tag/site.html">#site, </a></span>
+                            <span><a href="/tag/generator.html">#generator, </a></span>
+                </div>
+
+                <div class="entry-social">
+                    <span class="twitter"><a target="_blank" rel="nofollow"
+                                             onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"
+                                             title="Twitter"
+                                             href="https://twitter.com/share?url=/rise-of-the-pelican.html&text=Rise of the Pelican&via="><img
+                            src="/theme/images/icons/twitter-s.png"></a></span>
+
+                    <span class="gplus"><a target="_blank" title="Google +"
+                                           href="https://plus.google.com/share?url=/rise-of-the-pelican.html&hl=fr"
+                                           rel="nofollow"
+                                           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
+                            src="/theme/images/icons/google-s.png"></a></span>
+
+                    <span class="facebook"><a target="_blank" title="Facebook" rel="nofollow"
+                                              onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
+                                              href="https://www.facebook.com/sharer.php?u=/rise-of-the-pelican.html&t=Rise of the Pelican"><img
+                            src="/theme/images/icons/facebook-s.png"></a></span>
+
+                    <a target="_blank" title="Linkedin"
+                       href="https://www.linkedin.com/shareArticle?mini=true&url=/rise-of-the-pelican.html&title=Rise of the Pelican"
+                       rel="nofollow"
+                       onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
+                            src="/theme/images/icons/linkedin-s.png"></a>
+
+                    <span class="mail"><a
+                            href="mailto:?subject=Rise of the Pelican&amp;body=Viens découvrir un article à propos de [Rise of the Pelican] sur le site de Dylan Campbell. /rise-of-the-pelican.html"
+                            title="Share by Email" target="_blank"><img
+                            src="/theme/images/icons/mail-s.png"></a></span>
+                </div>
+            </div>
+        </article>
+    </section>
+</article>
+
+<!-- Footer -->
+    <footer>
+        <p>
+            Blog powered by <a href="http://getpelican.com/">Pelican</a>,
+            which takes great advantage of <a href="http://python.org">Python</a>.
+            Theme <a href="https://github.com/parbhat/pelican-blue">Pelican-Blue</a> by <a
+                href="https://parbhatpuri.com/">@parbhat</a>.
+        </p>
+    </footer>
+
+
+</body>
+</html>
