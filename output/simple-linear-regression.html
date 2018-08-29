@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="english" itemscope itemtype="http://schema.org/Person">
+<head>
+            <meta charset="utf-8">
+        <!-- Site Meta Data -->
+        <title>Simple Linear Regression</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Dylan Campbell">
+
+        <link rel="shortcut icon" href="url-to-favicon">
+
+        <!-- schema.org -->
+        <meta itemprop="name" content="Dylan Campbell">
+        <meta itemprop="image" content="">
+        <meta itemprop="description" content="">
+
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+        <!-- Style Meta Data -->
+        <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+        <link rel="stylesheet" href="/theme/css/pygments.css" type="text/css"/>
+
+        <!-- Feed Meta Data -->
+
+        <!-- Twitter Feed -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="">
+        <meta name="twitter:image" content="">
+
+    <meta name="twitter:creator" content="">
+    <meta name="twitter:url" content="/simple-linear-regression.html">
+    <meta name="twitter:title" content="Dylan Campbell ~ Simple Linear Regression">
+    <meta name="twitter:description" content="Using simple linear regression on a boxing bouts dataset.">
+
+    <!-- Facebook Meta Data -->
+    <meta property="og:title" content="Dylan Campbell ~ Simple Linear Regression"/>
+    <meta property="og:description" content="Using simple linear regression on a boxing bouts dataset."/>
+    <meta property="og:image" content=""/>
+</head>
+
+<body>
+<!-- Sidebar -->
+<aside>
+    <!--<center><a href=""><img id="avatar" src=""></a></center>-->
+    <h1>Dylan Campbell</h1>
+        <p>Software Developer</p>
+    <br>
+
+
+    <nav class="nav">
+        <ul class="list-bare">
+
+                <li><a class="nav__link" href="/">Blog</a></li>
+
+                <li><a class="nav__link" href="/pages/about-me.html">About</a></li>
+                <li><a class="nav__link" href="/pages/contact-me.html">Contact</a></li>
+
+        </ul>
+    </nav>
+
+    <p class="social">
+                <a href="https://www.linkedin.com/in/dylancharlescampbell" target="_blank"><img
+                        src="/theme/images/icons/linkedin.png"></a>
+                <a href="https://github.com/dcc023" target="_blank"><img
+                        src="/theme/images/icons/github.png"></a>
+    </p>
+
+        <h2>Categories</h2>
+        <ul class="navbar">
+                <li class="active"><a
+                        href="/category/machine_learning.html">machine_learning</a></li>
+                <li><a
+                        href="/category/python.html">python</a></li>
+        </ul>
+
+        <h2 class="blog_roll_link"><br/>BLOGROLLS</h2>
+        <ul class="navbar">
+                <li><a href="https://nickrcasteen.github.io/">Nick's Blog</a></li>
+        </ul>
+
+</aside>
+
+<!-- Content -->
+<article>
+    <section id="content">
+        <article>
+            <h2 class="post_title post_detail"><a href="/simple-linear-regression.html" rel="bookmark"
+                                                  title="Permalink to Simple Linear Regression">Simple Linear Regression</a></h2>
+            <div class="entry-content blog-post">
+                <h1>Preface</h1>
+<p>I recently made the decision that I want become more comfortable with machine learning. I've done a couple projects on it, but I wouldn't say I'm a machine learning guy. </p>
+<p>So for today's blog, I wanted to start simple with <a href="https://en.wikipedia.org/wiki/Simple_linear_regression">Simple Linear Regression</a>, which is a an algorithm which tries to draw a best fit line that minimizes the SSE (Sum of Squared Errors), which is basically saying minimize the overall error from the residual values(values that do not perfectly sit on the best fit line). For a better grasp, I'd highly recommend <a href="https://www.youtube.com/watch?v=ZkjP5RJLQF4">this video</a>, he did an excellent job simplifying the concept. I came across a <a href="https://www.kaggle.com/slonsky/boxing-bouts">boxing dataset</a> on Kaggle and immediately knew thats what I wanted to use. Not for logical reasons, purely biased ones. Lets see how much weight relates to KOs achieved. (There are obvious issues with making this correlation, but lets have some fun.) </p>
+<h1>Tools used:</h1>
+<ul>
+<li><a href="https://www.python.org/download/releases/3.0/">python3</a></li>
+<li><a href="http://www.numpy.org/">numpy</a></li>
+<li><a href="https://pandas.pydata.org/">pandas</a></li>
+<li><a href="https://matplotlib.org/api/pyplot_summary.html">matplotlib.pyplot</a></li>
+<li><a href="http://scikit-learn.org/stable/">sklearn</a></li>
+</ul>
+<h2>Let's Begin</h2>
+<p>First I wanted to import the dataset. Luckily <a href="https://pandas.pydata.org/">pandas</a> handles that fairly simple. I used <a href="https://pandas.pydata.org/pandas-docs/version/0.17.0/generated/pandas.DataFrame.iloc.html">iloc</a> to select the columns to set the inputs and outputs. Since I was planning on testing simple linear regression, I wanted to select 2 columns to work with. I chose the boxers' weights as the inputs to predict how many KOs(outputs) the boxers have. My hypothesis was that it'd probably not fit perfectly on a regession line, but we still test for science!</p>
+<div class="highlight"><pre><span></span><span class="c1"># import the dataset</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;bouts_out_new.csv&#39;</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span> <span class="p">:</span> <span class="p">,</span> <span class="mi">8</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="c1"># (inputs) weight column</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span> <span class="p">:</span> <span class="p">,</span> <span class="mi">16</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="c1"># (outputs) KOs column</span>
+</pre></div>
+
+
+<p>Next its time to do some preprocessing. I noticed there was a lot of missing data. Found that <a href="http://scikit-learn.org/stable/">sklearn</a> handles that fairly simply. Using the <a href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Imputer.html">Imputer</a>(which literally means to fill in missing data) function, I was able to fill in the empty slots with the mean value of the data in the given column.</p>
+<div class="highlight"><pre><span></span><span class="c1"># handle missing data</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">Imputer</span>
+<span class="n">imputer</span> <span class="o">=</span> <span class="n">Imputer</span><span class="p">()</span> <span class="c1"># Use imputer to replace all the missing values with the mean of the columns</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># Had to reshape my 1D arrays to 2D arrays before filling the values</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># This is since I only used a single column for each of these values and imputer expects 2D arrays</span>
+</pre></div>
+
+
+<p>There is more preprocessing I could do, but I wanted to go ahead and get some feedback.</p>
+<p>It was time to split my data into training and testing. Once again, <a href="http://scikit-learn.org/stable/">sklearn</a> had a handy function called <a href="http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html#sklearn.model_selection.train_test_split">train_test_split</a>.</p>
+<div class="highlight"><pre><span></span><span class="c1"># split into training and testing</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">Y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">)</span> <span class="c1"># dedicate 20% to test data</span>
+</pre></div>
+
+
+<p>With the testing and training ready, it was time to set up the simple linear regression model. <a href="http://scikit-learn.org/stable/">Sklearn</a> had a model handy, <a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">LinearRegression</a>. Just imported it and fitted it my training data.</p>
+<div class="highlight"><pre><span></span><span class="c1"># Fit the simple linear regression model to training set</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="n">regressor</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">regressor</span> <span class="o">=</span> <span class="n">regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Excellent! Now all that is left to actually get some visual feedback on how great/horrible this model worked with out data. Using <a href="https://matplotlib.org/api/pyplot_summary.html">matplotlib</a>, I was able to display a scatterplot of our data points and the best fit line that was created. Now for the moment of truth.</p>
+<div class="highlight"><pre><span></span><span class="c1"># Visualize train results</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Visualize&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">regressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+
+<p><img alt="training_results" src="../images/simp_lin_reg_train.png"></p>
+<div class="highlight"><pre><span></span><span class="c1"># Visualize the test results</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">Y_test</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">regressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+
+<p><img alt="testing_results" src="./images/simp_lin_reg_test.png"></p>
+<p>Okay.. well, it went about as well as I assumed. There does seem to be a sort of hill formation, which is not at all linear. This would most likely work better on a different model. I may come back to this dataset later on.</p>
+<p>As for now, I'm just happy to get my hands dirty with some machine learning.</p>
+            </div>
+            <div class="post_list">
+                <span>By </span>
+                <a href="/author/dylan-campbell.html">@Dylan Campbell</a>
+                <span> in </span>
+                <span class="post_category"><a href="/category/machine_learning.html" rel="bookmark"
+                                               title="Permalink to machine_learning">[ machine_learning ]</a></span>
+                <span class="post_date">Tue 28 August 2018</span>
+                <div><span>Tags : </span>
+                            <span><a href="/tag/python.html">#python, </a></span>
+                            <span><a href="/tag/machine-learning.html">#machine learning, </a></span>
+                            <span><a href="/tag/ai.html">#ai, </a></span>
+                            <span><a href="/tag/linear-regression.html">#linear regression, </a></span>
+                </div>
+
+                <div class="entry-social">
+                    <span class="twitter"><a target="_blank" rel="nofollow"
+                                             onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"
+                                             title="Twitter"
+                                             href="https://twitter.com/share?url=/simple-linear-regression.html&text=Simple Linear Regression&via="><img
+                            src="/theme/images/icons/twitter-s.png"></a></span>
+
+                    <span class="gplus"><a target="_blank" title="Google +"
+                                           href="https://plus.google.com/share?url=/simple-linear-regression.html&hl=fr"
+                                           rel="nofollow"
+                                           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
+                            src="/theme/images/icons/google-s.png"></a></span>
+
+                    <span class="facebook"><a target="_blank" title="Facebook" rel="nofollow"
+                                              onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
+                                              href="https://www.facebook.com/sharer.php?u=/simple-linear-regression.html&t=Simple Linear Regression"><img
+                            src="/theme/images/icons/facebook-s.png"></a></span>
+
+                    <a target="_blank" title="Linkedin"
+                       href="https://www.linkedin.com/shareArticle?mini=true&url=/simple-linear-regression.html&title=Simple Linear Regression"
+                       rel="nofollow"
+                       onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img
+                            src="/theme/images/icons/linkedin-s.png"></a>
+
+                    <span class="mail"><a
+                            href="mailto:?subject=Simple Linear Regression&amp;body=Viens découvrir un article à propos de [Simple Linear Regression] sur le site de Dylan Campbell. /simple-linear-regression.html"
+                            title="Share by Email" target="_blank"><img
+                            src="/theme/images/icons/mail-s.png"></a></span>
+                </div>
+            </div>
+        </article>
+    </section>
+</article>
+
+<!-- Footer -->
+    <footer>
+        <p>
+            Blog powered by <a href="http://getpelican.com/">Pelican</a>,
+            which takes great advantage of <a href="http://python.org">Python</a>.
+            Theme <a href="https://github.com/parbhat/pelican-blue">Pelican-Blue</a> by <a
+                href="https://parbhatpuri.com/">@parbhat</a>.
+        </p>
+    </footer>
+
+
+</body>
+</html>

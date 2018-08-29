@@ -13,7 +13,7 @@ To preview, cd to the output folder, run the python -m http.server
 > cd ./output
 > python -m http.server
 
-To finialize project
+To finialize project(from the project folder)
 > git push origin pelican-source
 > ghp-import output
 > git push https://github.com/dcc023/dcc023.github.io.git gh-pages:master
