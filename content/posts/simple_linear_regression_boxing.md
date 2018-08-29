@@ -1,4 +1,4 @@
-Title: Simple Linear Regression
+Title: Linear Regression on Boxing Data
 Category: machine_learning
 Date: 2018-08-28
 Modified: 2018-08-28
