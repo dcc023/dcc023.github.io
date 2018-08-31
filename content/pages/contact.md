@@ -7,9 +7,6 @@ Slug: contact-me
 Authors: Dylan Campbell
 Summary: All the ways to get in contact with me
 
-**Contact Me**
-==========
-
 ## [Email](mailto:campbellogna@gmail.com)
 ## [LinkedIn](https://www.linkedin.com/in/dylancharlescampbell)
 ## [Facebook](https://www.facebook.com/campbelldylancharles)
