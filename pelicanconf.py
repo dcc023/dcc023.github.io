@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Dylan Campbell'
 SITENAME = 'Dylan Campbell'
-SITEURL = 'http://localhost:8000'
+SITEURL = 'https://dcc023.github.io'
 SITELOGO = SITEURL + '/images/profile.jpg'
 FAVICON = SITEURL + '/images/favicon.ico'
 
