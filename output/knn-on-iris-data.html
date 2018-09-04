@@ -1403,7 +1403,8 @@ dict_keys([&#39;data&#39;, &#39;target&#39;, &#39;target_names&#39;, &#39;DESCR&
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Fitting-the-KNN-Classifier">Fitting the KNN Classifier<a class="anchor-link" href="#Fitting-the-KNN-Classifier">&#182;</a></h3><p>Now to setup our classifier, we will use KNN</p>
+<h3 id="Fitting-the-KNN-Classifier">Fitting the KNN Classifier<a class="anchor-link" href="#Fitting-the-KNN-Classifier">&#182;</a></h3><p>Now to setup our classifier, we will use KNN.</p>
+<p>KNN is a very simple algorithm to understand but still very effective. You basically store all of the training data points. Whenever a <em>new data point</em> is introduced, you plot that <em>new data point</em>. You then look for the <em>training data point</em> that is closest to it. You will then classify the <em>new data point</em> as the same class as the <em>training data point</em>. This specific example is if you only do 1 nearest neighbor. The K part of KNN means it is scalable. You can use multiple neighbors, the only difference is to just choose the class that the majority of the <em>training data points</em> are.</p>
 
 </div>
 </div>
@@ -1501,16 +1502,7 @@ dict_keys([&#39;data&#39;, &#39;target&#39;, &#39;target_names&#39;, &#39;DESCR&
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>97%? That is exceptional! That literally means it will accurately classify an Iris correctly 97% of the time. That's more effective than a human done whilst also been accomplish in an instant once given the raw describing data.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h3><p>What I've learned from this is that KNN is a very simple algorithm to understand but still very effective. You basically store all of the training data points. Whenever a <em>new data point</em> is introduced, you plot that <em>new data point</em>. You then look for the <em>training data point</em> that is closest to it. You will then classify the <em>new data point</em> as the same class as the <em>training data point</em>. This specific example is if you only do 1 nearest neighbor. The K part of KNN means it is scalable. You can use multiple neighbors, the only difference is to just choose the class that the majority of the <em>training data points</em> are.</p>
+<h3 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h3><p>97%? That is exceptional! That literally means it will accurately classify an Iris correctly 97% of the time. That's more effective than a human done whilst also been accomplish in an instant once given the raw describing data.</p>
 <p>If this blog did not fully makes sense, definitely check out <a href="https://www.amazon.com/Introduction-Machine-Learning-Python-Scientists/dp/1449369413">Introduction to Machine Learning with Python</a>. This is just a dumbed down version of what they go over in the first chapter.</p>
 
 </div>
