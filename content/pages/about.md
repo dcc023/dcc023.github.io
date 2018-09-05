@@ -3,7 +3,7 @@ Category: about
 Date: 2018-08-22
 Modified: 2018-08-22
 Tags: about, me, dylan, campbell
-Slug: about-me
+slug: about-me
 Authors: Dylan Campbell
 Summary: General summary about me
 

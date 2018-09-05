@@ -3,7 +3,7 @@ Category: python
 Date: 2018-08-24
 Modified: 2018-08-24
 Tags: framework, pelican, python, static, site, generator
-Slug: rise-of-the-pelican
+slug: rise-of-the-pelican
 Authors: Dylan Campbell
 Summary: Using the Pelican static site generator
 

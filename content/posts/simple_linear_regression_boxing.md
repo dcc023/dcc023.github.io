@@ -3,7 +3,7 @@ Category: machine_learning
 Date: 2018-08-28
 Modified: 2018-08-28
 Tags: python, machine learning, ai, linear regression, algorithm, regression
-Slug: linear-regression-on-boxing-data
+slug: linear-regression-on-boxing-data
 Authors: Dylan Campbell
 Summary: Using simple linear regression on a boxing bouts dataset.
 

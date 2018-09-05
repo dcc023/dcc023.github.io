@@ -3,7 +3,7 @@ Category: machine_learning
 Date: 2018-08-29
 Modified: 2018-08-29
 Tags: python, machine learning, ai, KNN, k nearest neighbors, algorithm, classification
-Slug: knn-on-iris-data
+slug: knn-on-iris-data
 Authors: Dylan Campbell
 Summary: Using KNN model on Iris dataset to properly classify the iris types
 
