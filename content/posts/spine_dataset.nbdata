@@ -1,0 +1,9 @@
+Title: Classification on a Spinal Dataset
+Category: machine_learning
+Date: 2018-09-07
+Modified: 2018-09-07
+Tags: python, machine learning, ai, KNN, KMeans, Linear SVM, PCA, TruncatedSVD, Random Forest, clustering, algorithm, classification
+slug: knn-on-iris-data
+Authors: Dylan Campbell
+Summary: Using various unsupervised models to manipulate the spinal data in hopes to raise the supervised models' classification accuracy.
+
